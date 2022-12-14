@@ -1,0 +1,24 @@
+Option Explicit
+
+On Error Resume Next
+
+ExcelMacroExample
+
+Sub ExcelMacroExample() 
+
+  Dim xlApp 
+  Dim xlBook 
+
+  
+  Set xlApp = CreateObject("Excel.Application") 
+  Set xlBook = xlApp.Workbooks.Open("\\..path..\file.xlsm", 0, True) 
+  xlApp.Visible = True
+  xlApp.DisplayAlerts = False 
+  xlApp.Run "refresh"
+  xlApp.Quit
+  xlApp.DisplayAlerts = True
+
+  Set xlBook = Nothing 
+  Set xlApp = Nothing 
+
+End Sub 
